@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home',function(){
+  return view('home');
+})->name('home');
+
+Auth::routes();
+
+Route::get('/changePassword','HomeController@showChangePasswordForm')->name('change-pass');
+Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
+
+Route::get('/home', 'HomeController@index')->name('home');
